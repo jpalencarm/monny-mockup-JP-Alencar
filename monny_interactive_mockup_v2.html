@@ -1,0 +1,435 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+  .monny-wrap {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    gap: 24px;
+    padding: 1.5rem 0;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .phone {
+    width: 260px;
+    background: #f5f0fc;
+    border-radius: 32px;
+    padding: 0;
+    overflow: hidden;
+    border: 2px solid #cea8f0;
+    flex-shrink: 0;
+  }
+
+  .phone-header {
+    background: #1f0866;
+    padding: 18px 20px 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #8717eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 600;
+    color: #fff;
+    flex-shrink: 0;
+  }
+
+  .header-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: #fff;
+    margin: 0;
+  }
+
+  .header-sub {
+    font-size: 10px;
+    color: #cea8f0;
+    margin: 0;
+  }
+
+  .chat-body {
+    padding: 14px 14px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .bubble-ai {
+    background: #fff;
+    border: 1px solid #cea8f0;
+    border-radius: 4px 16px 16px 16px;
+    padding: 10px 12px;
+    font-size: 11px;
+    color: #1f0866;
+    line-height: 1.5;
+    max-width: 90%;
+  }
+
+  .bubble-user {
+    background: #8717eb;
+    border-radius: 16px 16px 4px 16px;
+    padding: 8px 12px;
+    font-size: 11px;
+    color: #fff;
+    line-height: 1.5;
+    max-width: 85%;
+    align-self: flex-end;
+  }
+
+  .card-diagram {
+    background: #fff;
+    border: 1px solid #cea8f0;
+    border-radius: 16px;
+    padding: 12px;
+    margin-top: 2px;
+    max-width: 96%;
+  }
+
+  .card-title {
+    font-size: 10px;
+    font-weight: 600;
+    color: #1f0866;
+    margin: 0 0 10px;
+  }
+
+  .bar-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 6px;
+  }
+
+  .bar-label {
+    font-size: 9px;
+    color: #1f0866;
+    width: 52px;
+    flex-shrink: 0;
+  }
+
+  .bar-track {
+    flex: 1;
+    height: 10px;
+    background: #f0e6fb;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .bar-fill {
+    height: 100%;
+    border-radius: 6px;
+    transition: width 0.4s ease;
+  }
+
+  .bar-val {
+    font-size: 9px;
+    color: #8717eb;
+    font-weight: 600;
+    width: 30px;
+    text-align: right;
+  }
+
+  .slider-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 8px;
+  }
+
+  .slider-label {
+    font-size: 9px;
+    color: #1f0866;
+    width: 52px;
+    flex-shrink: 0;
+  }
+
+  input[type=range].mini {
+    flex: 1;
+    height: 3px;
+    accent-color: #8717eb;
+    cursor: pointer;
+  }
+
+  .slider-out {
+    font-size: 9px;
+    font-weight: 600;
+    color: #8717eb;
+    width: 30px;
+    text-align: right;
+  }
+
+  .savings-box {
+    background: #1f0866;
+    border-radius: 10px;
+    padding: 8px 10px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .savings-label {
+    font-size: 9px;
+    color: #cea8f0;
+    margin: 0;
+  }
+
+  .savings-val {
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    margin: 0;
+  }
+
+  .legend-col {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 9px;
+    color: #1f0866;
+    line-height: 1.3;
+  }
+
+  .legend-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .legend-pct {
+    font-weight: 600;
+    color: #8717eb;
+    margin-left: auto;
+    padding-left: 4px;
+  }
+
+  .tink-bubble {
+    background: #1f0866;
+    border-radius: 4px 16px 16px 16px;
+    padding: 8px 12px;
+    font-size: 10px;
+    color: #cea8f0;
+    line-height: 1.5;
+    max-width: 90%;
+    margin-top: 2px;
+  }
+
+  .tink-bubble strong {
+    color: #fff;
+  }
+
+  .phone-label {
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    color: #1f0866;
+    margin-bottom: 8px;
+    letter-spacing: 0.02em;
+  }
+
+  .phone-wrap {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .donut-section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .donut-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+</style>
+
+<div class="monny-wrap">
+
+  <div class="phone-wrap">
+    <p class="phone-label">Example 1 — Spending slider</p>
+    <div class="phone" id="phone1">
+      <div class="phone-header">
+        <div class="avatar">F</div>
+        <div>
+          <p class="header-name">Fien</p>
+          <p class="header-sub">Warm &amp; understanding</p>
+        </div>
+      </div>
+      <div class="chat-body">
+        <div class="bubble-user">I spent too much on dining out this month 😬</div>
+        <div class="bubble-ai">No worries! Let me show you exactly what's happening — and what a small change could do ✨</div>
+        <div class="card-diagram">
+          <p class="card-title">Your monthly spending</p>
+          <div class="bar-row">
+            <span class="bar-label">Dining out</span>
+            <div class="bar-track"><div class="bar-fill" id="bar-dining" style="width:75%;background:#8717eb;"></div></div>
+            <span class="bar-val" id="val-dining">€340</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label">Groceries</span>
+            <div class="bar-track"><div class="bar-fill" style="width:50%;background:#cea8f0;"></div></div>
+            <span class="bar-val">€220</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label">Transport</span>
+            <div class="bar-track"><div class="bar-fill" style="width:30%;background:#cea8f0;"></div></div>
+            <span class="bar-val">€130</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label">Subscriptions</span>
+            <div class="bar-track"><div class="bar-fill" style="width:22%;background:#cea8f0;"></div></div>
+            <span class="bar-val">€95</span>
+          </div>
+
+          <div class="slider-row">
+            <span class="slider-label">Dining slider</span>
+            <input type="range" class="mini" id="dining-slider" min="50" max="340" step="10" value="340">
+            <span class="slider-out" id="slider-out">€340</span>
+          </div>
+
+          <div class="savings-box">
+            <div>
+              <p class="savings-label">Monthly savings</p>
+              <p class="savings-val" id="savings-val">€50</p>
+            </div>
+            <div style="text-align:right;">
+              <p class="savings-label">Per year</p>
+              <p class="savings-val" id="yearly-val">€600</p>
+            </div>
+          </div>
+        </div>
+        <div class="bubble-ai" id="fien-response">Try dragging the slider — every euro helps 💜</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="phone-wrap">
+    <p class="phone-label">Example 3 — Spending breakdown</p>
+    <div class="phone">
+      <div class="phone-header">
+        <div class="avatar" style="background:#cea8f0;color:#1f0866;">T</div>
+        <div>
+          <p class="header-name">Tink</p>
+          <p class="header-sub">Honest &amp; direct</p>
+        </div>
+      </div>
+      <div class="chat-body">
+        <div class="bubble-user">Where is my money actually going?</div>
+        <div class="bubble-ai">Here's the breakdown. Tap a segment.</div>
+        <div class="card-diagram">
+          <p class="card-title">This month — €1,250 total</p>
+          <div class="donut-section">
+            <div class="donut-row">
+              <canvas id="donut" width="90" height="90" style="flex-shrink:0;cursor:pointer;"></canvas>
+              <div class="legend-col">
+                <div class="legend-item"><span class="legend-dot" style="background:#8717eb"></span>Dining out<span class="legend-pct">27%</span></div>
+                <div class="legend-item"><span class="legend-dot" style="background:#cea8f0"></span>Groceries<span class="legend-pct">18%</span></div>
+                <div class="legend-item"><span class="legend-dot" style="background:#1f0866"></span>Transport<span class="legend-pct">10%</span></div>
+                <div class="legend-item"><span class="legend-dot" style="background:#b47de0"></span>Subscriptions<span class="legend-pct">8%</span></div>
+                <div class="legend-item"><span class="legend-dot" style="background:#7340b5"></span>Other<span class="legend-pct">37%</span></div>
+              </div>
+            </div>
+            <div style="background:#1f0866;border-radius:10px;padding:8px 10px;">
+              <p class="savings-label" id="tink-label">Tap a segment to inspect</p>
+              <p style="font-size:10px;font-weight:600;color:#fff;margin:2px 0 0;" id="tink-note"> </p>
+            </div>
+          </div>
+        </div>
+        <div class="tink-bubble"><strong>3 subscriptions</strong> unused in 30 days — that's €42 you could cut today.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<script>
+  const slider = document.getElementById('dining-slider');
+  const barDining = document.getElementById('bar-dining');
+  const valDining = document.getElementById('val-dining');
+  const sliderOut = document.getElementById('slider-out');
+  const savingsVal = document.getElementById('savings-val');
+  const yearlyVal = document.getElementById('yearly-val');
+  const fienResponse = document.getElementById('fien-response');
+
+  const BASE_DINING = 340;
+  const BASE_SAVINGS = 50;
+
+  slider.addEventListener('input', function() {
+    const v = parseInt(this.value);
+    const pct = Math.round((v / BASE_DINING) * 75);
+    barDining.style.width = pct + '%';
+    valDining.textContent = '€' + v;
+    sliderOut.textContent = '€' + v;
+    const saved = BASE_SAVINGS + (BASE_DINING - v);
+    savingsVal.textContent = '€' + saved;
+    yearlyVal.textContent = '€' + (saved * 12);
+
+    if (v < 150) {
+      fienResponse.textContent = "Amazing! You'd save €" + saved + "/month. That's a trip by summer 🌍";
+    } else if (v < 250) {
+      fienResponse.textContent = "Great progress! Small cuts add up — €" + (saved * 12) + " extra this year 💜";
+    } else {
+      fienResponse.textContent = "Try dragging the slider — every euro helps 💜";
+    }
+  });
+
+  const segments = [
+    { label: 'Dining out', pct: 27, color: '#8717eb', note: '€340 — highest category this month' },
+    { label: 'Groceries', pct: 18, color: '#cea8f0', note: '€220 — within normal range' },
+    { label: 'Transport', pct: 10, color: '#1f0866', note: '€130 — stable' },
+    { label: 'Subscriptions', pct: 8, color: '#b47de0', note: '€95 — 3 unused in 30 days' },
+    { label: 'Other', pct: 37, color: '#7340b5', note: '€465 — mixed categories' }
+  ];
+
+  const donutEl = document.getElementById('donut');
+  const tinkLabel = document.getElementById('tink-label');
+  const tinkNote = document.getElementById('tink-note');
+
+  const chart = new Chart(donutEl, {
+    type: 'doughnut',
+    data: {
+      labels: segments.map(s => s.label),
+      datasets: [{
+        data: segments.map(s => s.pct),
+        backgroundColor: segments.map(s => s.color),
+        borderWidth: 2,
+        borderColor: '#f5f0fc',
+        hoverOffset: 6
+      }]
+    },
+    options: {
+      cutout: '62%',
+      plugins: { legend: { display: false }, tooltip: { enabled: false } },
+      onClick: function(e) {
+        const pts = chart.getElementsAtEventForMode(e, 'nearest', { intersect: true }, true);
+        if (pts.length) {
+          const i = pts[0].index;
+          const s = segments[i];
+          tinkLabel.textContent = s.label + ' — ' + s.pct + '% of spending';
+          tinkNote.textContent = s.note;
+        }
+      },
+      animation: { animateRotate: true, duration: 600 }
+    }
+  });
+</script>
